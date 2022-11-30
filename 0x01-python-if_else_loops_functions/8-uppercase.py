@@ -5,5 +5,4 @@ def uppercase(str):
             check = check - 32
             i = chr(check)
         print("{}".format(i))
-    print("{}".format(I))
-
+    print("{}".format(i))
