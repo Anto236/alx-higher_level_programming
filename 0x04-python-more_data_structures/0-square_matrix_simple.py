@@ -1,6 +1,6 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
+
+
 def square_matrix_simple(matrix=[]):
-    new_matrix = matrix.copy()
-    for i in range(len(matrix)):
-        new_matrix[i] = list(map(lambda x: x*x, matrix[i]))
-    return new_matrix
+
+    return [list(map(lambda x: x*x, y)) for y in matrix]
