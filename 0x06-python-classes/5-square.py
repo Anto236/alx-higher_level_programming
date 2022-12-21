@@ -1,47 +1,56 @@
 #!/usr/bin/python3
+"""Create a square class"""
+
+
 class Square:
-    """ A class that defines a square by its size
-    """
+    """Create a square object"""
+
     def __init__(self, size=0):
-        """ Method to initialize the square object
+        """Use __init__ to initialize square with private size.
+        Args:
+             size (int): Private size of square.
         """
-        if not isinstance(size, int):
+        if type(size) is not int:
             raise TypeError("size must be an integer")
-        elif size < 0:
+
+        if size < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.__size = size
 
     def area(self):
-        """ Method that returns the square are of the object
+        """Return area of the square
+        Args:
+            size (int): size of square
         """
-        return (self.__size ** 2)
+
+        return (self.__size * self.__size)
 
     @property
     def size(self):
-        """ Method to returns the size value
-        """
-        return self.__size
+        """Get size of square"""
+        return (self.__size)
 
     @size.setter
     def size(self, value):
-        """ Method to set the size value of the square object
+        """Set the size of the square
+        Args:
+             size (int): Private size of square.
         """
-        if not isinstance(value, int):
+
+        if type(value) is not int:
             raise TypeError("size must be an integer")
-        elif value < 0:
+
+        if value < 0:
             raise ValueError("size must be >= 0")
-        else:
-            self.__size = value
+        self.__size = value
 
     def my_print(self):
-        """ Method that prints a # square according
-        to the size value
+        """Print square to stdout using #
+        Args:
+             square (str): used to print square
         """
-        if not self.__size:
+        if self.size == 0:
             print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end='')
-                print()
+        for x in range(self.size):
+            square = self.size * "#"
+            print(square)
