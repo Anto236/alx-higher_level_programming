@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-""" Define the square """
+"""Define the square"""
 class Square:
     pass
