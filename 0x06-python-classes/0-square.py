@@ -2,6 +2,7 @@
 
 """Define a class in python"""
 
+
 class Square:
 
     """empty class"""
