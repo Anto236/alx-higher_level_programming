@@ -3,7 +3,6 @@
 
 
 class Square:
-
-   """empty square"""
+    """empty square"""
 
     pass
