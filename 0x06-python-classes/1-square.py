@@ -1,13 +1,14 @@
-#!/usr/bin/python
-"""Declare the class"""
+#!/usr/bin/python3
+"""Create a square class"""
 
 
 class Square:
-    """Initialize the class"""
+    """Create a square object"""
 
-    def __init__(self, size):
-       """
-       Args:
-            size (int): Private size of square
-       """
-       self.__size = size
+    def __init__(self, size=None):
+
+        """
+
+        """
+
+        self.__size = size
