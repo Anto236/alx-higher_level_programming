@@ -77,3 +77,8 @@ class Rectangle:
             for i in range(self.height):
                 rectangle += (self.width * "#") + "\n"
             return rectangle[:-1]
+
+    def __repr__(self):
+        """method returning string representation of instance"""
+
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
