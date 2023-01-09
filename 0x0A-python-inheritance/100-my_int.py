@@ -1,17 +1,15 @@
 #!/usr/bin/python3
 
-"""subclass that inherits from int"""
+"""Subclass MyInt that inherits from int"""
 
 
 class MyInt(int):
     """MyInt subclass of int"""
 
     def __eq__(self, other):
-        """opposite of =="""
-
+        """Opposite of equal"""
         return (super().__ne__(other))
 
     def __ne__(self, other):
-        """opposite of !="""
+        """Opposite of not equal"""
         return (super().__eq__(other))
-
