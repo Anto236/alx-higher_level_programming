@@ -1,66 +1,46 @@
-==================
-1-my_list subclass
-==================
+Testing MyList Class
+===========================
 
-This subclass inherits the list class. The function print_sorted
-prints a list of ints in ascending order
+"MyList" is a subclass of "list".
 
-Import the function:
-  >>> MyList = __import__('1-my_list').MyList
+Tests
+===========
 
-If a number of integers are passed through:
-  >>> my_list = MyList()
-  >>> my_list.append(1)
-  >>> my_list.append(4)
-  >>> my_list.append(2)
-  >>> my_list.append(3)
-  >>> my_list.append(5)
-  >>> my_list.print_sorted()
-  [1, 2, 3, 4, 5]
+	>>> MyList = __import__('1-my_list').MyList
 
-If all ints are the same:
-  >>> my_list = MyList()
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.print_sorted()
-  [6, 6, 6, 6, 6]
+::
 
-If an argument is passed:
-  >>> my_list = MyList()
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.append(6)
-  >>> my_list.print_sorted(5)
-  Traceback (most recent call last):
-  	    ...
-  TypeError: print_sorted() takes 1 positional argument but 2 were given
 
-If a list is empty:
-  >>> my_list = MyList()
-  >>> my_list.print_sorted()
-  []
+	>>> mlist = MyList([0, 1, 2, 3])
+	>>> print(mlist)
+	[0, 1, 2, 3]
 
-If a list contains negative numbers:
-  >>> my_list = MyList()
-  >>> my_list.append(1)
-  >>> my_list.append(-4)
-  >>> my_list.append(2)
-  >>> my_list.append(-3)
-  >>> my_list.append(5)
-  >>> my_list.print_sorted()
-  [-4, -3, 1, 2, 5]
+::
 
-If a list is already ordered:
-  >>> my_list = MyList()
-  >>> my_list.append(1)
-  >>> my_list.append(2)
-  >>> my_list.append(3)
-  >>> my_list.append(4)
-  >>> my_list.append(5)
-  >>> my_list.print_sorted()
-  [1, 2, 3, 4, 5]
+	>>> mlist = MyList([-1, -5, 10, 1])
+	>>> mlist.print_sorted()
+	[-5, -1, 1, 10]
+
+::
+
+	>>> mlist = MyList()
+	>>> mlist.print_sorted()
+	[]
+
+::
+
+	>>> mlist = MyList(["Nope", 0, 1])
+	>>> mlist.print_sorted()
+	Traceback (most recent call last):
+	TypeError: unorderable types: int() < str()
+
+::
+
+	>>> mlist = MyList([0, 1])
+	>>> mlist.append(-1)
+	>>> print(mlist)
+	[0, 1, -1]
+	>>> MyList.print_sorted(mlist)
+	[-1, 0, 1]
+	>>> print(mlist)
+	[0, 1, -1]
