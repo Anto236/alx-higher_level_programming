@@ -1,15 +1,14 @@
 Testing MyList Class
-===========================
+========================
 
 "MyList" is a subclass of "list".
 
 Tests
-===========
+======
 
 	>>> MyList = __import__('1-my_list').MyList
 
 ::
-
 
 	>>> mlist = MyList([0, 1, 2, 3])
 	>>> print(mlist)
