@@ -1,25 +1,21 @@
 #!/usr/bin/python3
-"""Module that holds class Student
-"""
+""" Module that executes a function that appends a line """
 
 
-class Student:
-    """Defines a student"""
+def append_after(filename="", search_string="", new_string=""):
+    """ Function that appends a new line when a string is found
+    Args:
+        filename: filename
+        search_string: string to search
+        new_string: string to append
+    """
 
-    def __init__(self, first_name, last_name, age):
-        """Initializes Student"""
+    res_line = []
+    with open(filename, 'r', encoding="utf-8") as f:
+        for line in f:
+            res_line += [line]
+            if line.find(search_string) != -1:
+                res_line += [new_string]
 
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def to_json(self, attrs=None):
-        """Retrieves a dictionary representation of a Student instance"""
-
-        if attrs is None:
-            return self.__dict__
-        my_dict = {}
-        for attr in attrs:
-            if attr in self.__dict__.keys():
-                my_dict[attr] = self.__dict__[attr]
-        return my_dict
+    with open(filename, 'w', encoding="utf-8") as f:
+        f.write("".join(res_line))
