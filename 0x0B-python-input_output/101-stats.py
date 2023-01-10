@@ -24,4 +24,3 @@ except KeyboardInterrupt:
     print("Number of lines by status code:")
     for status in sorted(status_codes.keys()):
         print(f"{status}: {status_codes[status]}")
-
