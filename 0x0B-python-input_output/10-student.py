@@ -1,27 +1,33 @@
 #!/usr/bin/python3
-
-"""Class Student definition"""
+"""define a class Student"""
 
 
 class Student:
-    """Student class"""
+    """class student"""
 
     def __init__(self, first_name, last_name, age):
-        """Initialization method"""
+        """instantation of class"""
 
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """Method to retrieve dictionary representation of Student instance"""
+        """method to retrieve attributes
+        create a variable to store attributes
+        """
 
-        if attrs is None or type(attrs) is not list:
-            return (self.__dict__)
-        else:
-            x = {}
-            for y in self.__dict__:
-                for z in attrs:
-                    if y == z:
-                        x[y] = self.__dict__[y]
-        return (x)
+        student_dict = {}
+        """check if attrs exist"""
+        if attrs:
+            """loop through and add the attrs"""
+            for attr in attrs:
+                """use method hasatt to check if attr exist
+                if true use method getattr to get attrs
+                """
+                if hasattr(self, attr):
+                    student_dict[attr] = getattr(self, attr)
+            else:
+                student_attr = self.__dict__
+
+            return(student_dict)
