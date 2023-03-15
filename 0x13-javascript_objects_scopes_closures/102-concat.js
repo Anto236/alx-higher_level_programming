@@ -1,12 +1,6 @@
 #!/usr/bin/node
+const fs = require('fs');
 
-const myDict = require('./101-data').dict;
-const newDict = {};
-for (const k in myDict) {
-  if (myDict[k] in newDict) {
-    newDict[myDict[k]].push(k);
-  } else {
-    newDict[myDict[k]] = [k];
-  }
-}
-console.log(newDict);
+const fArg = fs.readFileSync(process.argv[2]).toString();
+const sArg = fs.readFileSync(process.argv[3]).toString();
+fs.writeFileSync(process.argv[4], fArg + sArg);
