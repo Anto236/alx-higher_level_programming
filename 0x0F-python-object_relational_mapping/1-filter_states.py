@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-""" Script that lists states starting with letter N from specified database"""
-
-
+"""
+Lists all states with a name starting with N
+"""
+import sys
 import MySQLdb
-from sys import argv
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
-    cursor = db.cursor()
-    cursor.execute("""SELECT * FROM states where name REGEXP '^[N].*$' \
-                     ORDER BY id ASC""")
-    result = cursor.fetchall()
-    for row in result:
-        print(row)
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], port=3306)
 
-    cursor.close()
-    db.close()
+    cur = db.cursor()
+    cur.execute("SELECT * \
+    FROM states \
+    WHERE CONVERT(`name` USING Latin1) \
+    COLLATE Latin1_General_CS \
+    LIKE 'N%';")
+    states = cur.fetchall()
+
+    for state in states:
+        print(state)
