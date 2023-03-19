@@ -18,8 +18,9 @@ if __name__ == '__main__':
     cursor = db.cursor()
 
     # Create SQL query using user input
-    sql = "SELECT * FROM states WHERE name='{}' ORDER BY id ASC" \
-          .format(sys.argv[4])
+    sql = "SELECT * FROM states WHERE \
+           CONVERT(`name` USING Latin1) \
+           COLLATE Latin1_General_CS = '{}';".format(sys.argv[4])
 
     # Execute SQL query
     cursor.execute(sql)
