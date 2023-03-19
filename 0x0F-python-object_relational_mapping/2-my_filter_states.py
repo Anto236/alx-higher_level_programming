@@ -20,7 +20,7 @@ if __name__ == '__main__':
     # Create SQL query using user input
     sql = "SELECT * FROM states WHERE \
            CONVERT(`name` USING Latin1) \
-           COLLATE Latin1_General_CS = '{}';".format(sys.argv[4])
+           COLLATE Latin1_General_CS = '{}'".format(sys.argv[4])
 
     # Execute SQL query
     cursor.execute(sql)
