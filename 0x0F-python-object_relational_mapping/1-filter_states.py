@@ -1,21 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
-lists all states with a name starting with N
-(upper N) from the database hbtn_0e_0_usa
+Lists all states with a name starting with N
 """
-import MySQLdb
 import sys
+import MySQLdb
 
+if __name__ == '__main__':
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], port=3306)
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         db=sys.argv[3],
-                         host='localhost',
-                         port=3306)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-    for row in cursor.fetchall():
-        print(row)
-    cursor.close()
-    db.close()
+    cur = db.cursor()
+    cur.execute("SELECT * \
+    FROM states \
+    WHERE CONVERT(`name` USING Latin1) \
+    COLLATE Latin1_General_CS \
+    LIKE 'N%';")
+    states = cur.fetchall()
+
+    for state in states:
+        print(state)
