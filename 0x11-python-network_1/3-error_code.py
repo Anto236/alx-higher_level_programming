@@ -5,15 +5,16 @@ This module takes a URL, sends a request to the
 URL and displays the body of the response.
 """
 
-import urllib.request
-import urllib.error
+from urllib import request, error
 import sys
 
+
 if __name__ == "__main__":
-    url = input("Enter a URL: ")
+    url = sys.argv[1]
+
     try:
-        with urllib.request.urlopen(url) as response:
+        with request.urlopen(url) as response:
             body = response.read().decode('utf-8')
             print(body)
-    except urllib.error.HTTPError as e:
-        print(f"Error code: {e.code}")
+    except error.HTTPError as e:
+        print(f"Error code: {}".format(e.code))
