@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 This script sends a POST request to
 http://0.0.0.0:5000/search_user with
